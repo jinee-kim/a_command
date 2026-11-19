@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>디자인 관점으로 콘텐츠를 기획하고 비즈니스와 연결합니다</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #111111;
+    --muted: #6b6b6b;
+    --accent: #ffe000;
+    --card-radius: 2px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0f0f0f;
+      --fg: #f5f5f5;
+      --muted: #9a9a9a;
+      --accent: #ffe000;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0f0f0f;
+    --fg: #f5f5f5;
+    --muted: #9a9a9a;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: "Noto Sans KR", system-ui, -apple-system, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .hero {
+    min-height: 62vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 96px 16px 72px;
+  }
+
+  .hero h1 {
+    font-family: "Noto Serif KR", serif;
+    font-weight: 400;
+    font-size: clamp(30px, 5.2vw, 64px);
+    line-height: 1.38;
+    letter-spacing: -0.01em;
+    word-break: keep-all;
+  }
+
+  .cta {
+    margin-top: 48px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    height: 62px;
+    padding: 0 34px;
+    border-radius: 999px;
+    background: var(--accent);
+    color: #111;
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: none;
+    border: 0;
+    cursor: pointer;
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .cta:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0,0,0,.12); }
+  .cta:focus-visible { outline: 3px solid #111; outline-offset: 4px; }
+  .cta svg { width: 20px; height: 20px; }
+
+  /* ---------- strip ---------- */
+  .strip {
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 8px;
+  }
+  .track {
+    display: flex;
+    gap: 0;
+    width: max-content;
+    animation: scroll 40s linear infinite;
+  }
+  .strip:hover .track { animation-play-state: paused; }
+
+  .card {
+    flex: 0 0 auto;
+    width: clamp(200px, 22vw, 285px);
+    aspect-ratio: 285 / 403;
+    position: relative;
+    overflow: hidden;
+    background: #ddd;
+    border-radius: var(--card-radius);
+    transition: transform .4s ease;
+  }
+  .card:hover { transform: scale(1.02); z-index: 1; }
+  .card svg { width: 100%; height: 100%; display: block; }
+
+  @keyframes scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .track { animation: none; }
+  }
+
+  @media (max-width: 640px) {
+    .hero { min-height: 56vh; padding: 72px 16px 56px; }
+    .cta { height: 54px; padding: 0 26px; font-size: 16px; margin-top: 36px; }
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <h1>디자인 관점으로 콘텐츠를<br>기획하고 비즈니스와 연결합니다</h1>
+  <a class="cta" href="#projects">
+    프로젝트 보기
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M4 12h15M13 6l6 6-6 6"/>
+    </svg>
+  </a>
+</section>
+
+<section class="strip" id="projects" aria-label="프로젝트 미리보기">
+  <div class="track" id="track">
+    <!-- JS로 카드가 복제되어 무한 루프를 만듭니다 -->
+  </div>
+</section>
+
+<script>
+  // 원본 제작 일러스트(추상 도형) — 실제 잡지 표지/이미지 대신 사용하는 플레이스홀더
+  const arts = [
+    // 1. 건축 사진 느낌의 플레이스홀더
+    `<svg viewBox="0 0 285 403" preserveAspectRatio="xMidYMid slice">
+       <rect width="285" height="403" fill="#e9ecef"/>
+       <rect y="0" width="285" height="70" fill="#f4f4f2"/>
+       <rect x="30" y="150" width="200" height="140" fill="#b5543c"/>
+       <polygon points="20,150 130,95 250,150" fill="#4a4a4a"/>
+       <rect x="30" y="290" width="235" height="113" fill="#c9d3d6"/>
+     </svg>`,
+    // 2. 그래픽 포스터 느낌
+    `<svg viewBox="0 0 285 403" preserveAspectRatio="xMidYMid slice">
+       <rect width="285" height="403" fill="#ffffff"/>
+       <circle cx="150" cy="170" r="90" fill="none" stroke="#ff2e88" stroke-width="18"/>
+       <path d="M40 300 Q120 240 200 320 T270 300" stroke="#2a6cf0" stroke-width="22" fill="none"/>
+       <rect x="40" y="60" width="90" height="26" fill="#ffd400"/>
+       <rect x="40" y="350" width="200" height="26" fill="#111"/>
+     </svg>`,
+    // 3. 인테리어 플레이스홀더
+    `<svg viewBox="0 0 285 403" preserveAspectRatio="xMidYMid slice">
+       <rect width="285" height="403" fill="#d8dcd0"/>
+       <rect y="0" width="285" height="130" fill="#b9c4b0"/>
+       <rect x="0" y="180" width="285" height="130" fill="#7fa36a"/>
+       <rect x="60" y="290" width="170" height="30" fill="#efeee8"/>
+       <rect x="0" y="330" width="285" height="73" fill="#f3f1ea"/>
+       <rect x="100" y="150" width="90" height="26" fill="#ffffff"/>
+     </svg>`,
+    // 4. 세리프 타이포 포스터
+    `<svg viewBox="0 0 285 403" preserveAspectRatio="xMidYMid slice">
+       <rect width="285" height="403" fill="#a9785a"/>
+       <ellipse cx="142" cy="220" rx="80" ry="120" fill="#e9d3b5"/>
+       <rect x="30" y="34" width="120" height="70" fill="#2b5dd6"/>
+       <text x="40" y="76" font-family="serif" font-size="30" fill="#fff">Living</text>
+       <rect x="30" y="360" width="90" height="10" fill="#111"/>
+     </svg>`,
+    // 5. 컬러 블록 일러스트
+    `<svg viewBox="0 0 285 403" preserveAspectRatio="xMidYMid slice">
+       <rect width="285" height="403" fill="#ffffff"/>
+       <path d="M40 40 L120 40 L120 180 L40 180 Z" fill="#8e44d6"/>
+       <path d="M130 60 L230 60 L230 170 L130 240 Z" fill="#2fb36d"/>
+       <rect x="60" y="210" width="170" height="90" fill="#ff8a1f"/>
+       <path d="M20 300 Q60 260 100 300 T180 300 T270 300" stroke="#3d8bff" stroke-width="16" fill="none"/>
+     </svg>`,
+    // 6. 패션 사진 느낌의 플레이스홀더
+    `<svg viewBox="0 0 285 403" preserveAspectRatio="xMidYMid slice">
+       <rect width="285" height="403" fill="#f5f5f5"/>
+       <rect x="0" y="0" width="285" height="60" fill="#ffffff"/>
+       <text x="30" y="52" font-family="serif" font-size="34" fill="#a3203a">MAGAZINE</text>
+       <ellipse cx="142" cy="220" rx="62" ry="80" fill="#e8c9b8"/>
+       <rect x="60" y="300" width="165" height="103" fill="#1d1d1d"/>
+       <circle cx="142" cy="368" r="14" fill="#c0203a"/>
+     </svg>`
+  ];
+
+  // 카드 세트를 만들고 두 번 복제해 끊김 없는 무한 루프를 구성
+  const track = document.getElementById('track');
+  const set = arts.map((svg, i) => {
+    const card = document.createElement('figure');
+    card.className = 'card';
+    card.setAttribute('aria-label', `프로젝트 ${i + 1}`);
+    card.innerHTML = svg;
+    return card;
+  });
+  [...set, ...set.map(c => c.cloneNode(true))].forEach(c => track.appendChild(c));
+</script>
+
+</body>
+</html>

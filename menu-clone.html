@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>서비스 메뉴 & 게임 카테고리</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #1d1d1d;
+    --muted: #8a8a8a;
+    --line: #ececec;
+    --chip-bg: #f3f4f6;
+    --chip-active: #1d1d1d;
+    --chip-active-fg: #ffffff;
+    --badge: #2f7bff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #121212;
+      --fg: #f2f2f2;
+      --muted: #9a9a9a;
+      --line: #2a2a2a;
+      --chip-bg: #1f1f1f;
+      --chip-active: #f2f2f2;
+      --chip-active-fg: #121212;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #121212; --fg: #f2f2f2; --muted: #9a9a9a; --line: #2a2a2a;
+    --chip-bg: #1f1f1f; --chip-active: #f2f2f2; --chip-active-fg: #121212;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: "Noto Sans KR", system-ui, -apple-system, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 24px 16px 48px; }
+
+  /* ---------- 상단 서비스 아이콘 메뉴 ---------- */
+  .services {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    padding: 12px 4px 14px;
+    scrollbar-width: none;
+    border-bottom: 1px solid var(--line);
+  }
+  .services::-webkit-scrollbar { display: none; }
+
+  .svc {
+    flex: 0 0 auto;
+    width: 62px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--fg);
+    font-size: 13px;
+    position: relative;
+    padding: 4px 0;
+    border-radius: 12px;
+    transition: background .2s ease;
+  }
+  .svc:hover { background: var(--chip-bg); }
+  .svc:focus-visible { outline: 2px solid var(--badge); outline-offset: 2px; }
+
+  .ico {
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    display: grid;
+    place-items: center;
+    background: var(--bg);
+    box-shadow: 0 1px 3px rgba(0,0,0,.12);
+  }
+  .ico svg { width: 30px; height: 30px; }
+
+  .badge {
+    position: absolute;
+    top: -6px;
+    right: 2px;
+    background: var(--badge);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 999px;
+  }
+
+  /* ---------- 카테고리 필터 ---------- */
+  .cats {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 20px 0 12px;
+    scrollbar-width: none;
+  }
+  .cats::-webkit-scrollbar { display: none; }
+  .chip {
+    flex: 0 0 auto;
+    border: 0;
+    background: var(--chip-bg);
+    color: var(--fg);
+    font: inherit;
+    font-size: 14px;
+    padding: 9px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background .2s ease, color .2s ease;
+  }
+  .chip[aria-selected="true"] { background: var(--chip-active); color: var(--chip-active-fg); }
+  .chip:focus-visible { outline: 2px solid var(--badge); outline-offset: 2px; }
+
+  /* ---------- 리스트 ---------- */
+  .list { list-style: none; border-top: 1px solid var(--line); }
+  .item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 4px;
+    border-bottom: 1px solid var(--line);
+  }
+  .thumb {
+    flex: 0 0 56px;
+    height: 56px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 18px;
+  }
+  .meta { flex: 1; min-width: 0; }
+  .meta strong { display: block; font-size: 16px; font-weight: 500; }
+  .meta span { font-size: 13px; color: var(--muted); }
+  .tag { font-size: 12px; color: var(--muted); white-space: nowrap; }
+  .empty { padding: 40px 0; text-align: center; color: var(--muted); display: none; }
+
+  @media (max-width: 480px) {
+    .svc { width: 58px; }
+    .ico { width: 48px; height: 48px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="services" aria-label="서비스 메뉴">
+    <a class="svc" href="#"><span class="ico"><svg viewBox="0 0 32 32"><rect x="4" y="8" width="24" height="17" rx="3" fill="#2dbf64"/><path d="M5 10l11 8 11-8" stroke="#fff" stroke-width="2" fill="none"/></svg></span>메일</a>
+    <a class="svc" href="#"><span class="ico"><svg viewBox="0 0 32 32"><path d="M6 12h16v8a6 6 0 0 1-6 6h-4a6 6 0 0 1-6-6z" fill="#2dbf64"/><path d="M22 14h2a3 3 0 0 1 0 6h-2" stroke="#2dbf64" stroke-width="2" fill="none"/></svg></span>카페</a>
+    <a class="svc" href="#"><span class="ico"><svg viewBox="0 0 32 32"><path d="M8 6v20M8 14c4-4 8-4 12 0v-2" stroke="#2dbf64" stroke-width="3" fill="none" stroke-linecap="round"/><rect x="19" y="18" width="6" height="8" rx="1" fill="#2dbf64"/></svg></span>블로그</a>
+    <a class="svc" href="#"><span class="ico"><svg viewBox="0 0 32 32"><rect x="4" y="6" width="24" height="20" rx="4" fill="#6b3fd6"/><path d="M11 12h10M11 16h10M11 20h6" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>쇼핑</a>
+    <a class="svc" href="#"><span class="ico"><svg viewBox="0 0 32 32"><rect x="4" y="7" width="24" height="18" rx="3" fill="#3b82f6"/><rect x="4" y="11" width="24" height="4" fill="#1e40af"/><rect x="8" y="18" width="8" height="3" fill="#fff"/></svg></span>뉴스</a>
+    <a class="svc" href="#"><span class="ico"><svg viewBox="0 0 32 32"><path d="M4 22l7-7 5 5 12-12" stroke="#222" stroke-width="2.5" fill="none" stroke-linejoin="round"/><path d="M4 26h24" stroke="#222" stroke-width="1.5"/></svg></span>증권</a>
+    <a class="svc" href="#"><span class="ico"><svg viewBox="0 0 32 32"><path d="M16 5l11 10h-4v10h-14v-10h-4z" fill="#22c55e"/><rect x="13" y="19" width="6" height="6" fill="#fff"/></svg></span>부동산</a>
+    <a class="svc" href="#"><span class="ico"><svg viewBox="0 0 32 32"><path d="M16 4a8 8 0 0 0-8 8c0 6 8 16 8 16s8-10 8-16a8 8 0 0 0-8-8z" fill="#03c75a"/><circle cx="16" cy="12" r="3" fill="#fff"/></svg></span>지도</a>
+    <a class="svc" href="#"><span class="ico"><svg viewBox="0 0 32 32"><rect x="4" y="4" width="24" height="24" rx="5" fill="#00d564"/><path d="M10 10h12v12H10z" fill="none" stroke="#fff" stroke-width="2"/></svg></span>웹툰</a>
+    <a class="svc" href="#"><span class="badge">추천</span><span class="ico"><svg viewBox="0 0 32 32"><rect x="4" y="4" width="24" height="24" rx="6" fill="#111"/><path d="M11 10h10l-9 12h10" stroke="#00e676" stroke-width="2.5" fill="none" stroke-linejoin="round"/></svg></span>치지직</a>
+  </nav>
+
+  <div class="cats" role="tablist" aria-label="게임 카테고리">
+    <button class="chip" role="tab" aria-selected="true" data-cat="전체">전체</button>
+    <button class="chip" role="tab" aria-selected="false" data-cat="액션">액션</button>
+    <button class="chip" role="tab" aria-selected="false" data-cat="슈팅">슈팅</button>
+    <button class="chip" role="tab" aria-selected="false" data-cat="어드벤쳐">어드벤쳐</button>
+    <button class="chip" role="tab" aria-selected="false" data-cat="퍼즐">퍼즐</button>
+    <button class="chip" role="tab" aria-selected="false" data-cat="아케이드">아케이드</button>
+  </div>
+
+  <ul class="list" id="list">
+    <li class="item" data-cat="액션"><div class="thumb" style="background:#ef4444">A</div><div class="meta"><strong>블레이드 러쉬</strong><span>연속 콤보 액션</span></div><span class="tag">액션</span></li>
+    <li class="item" data-cat="슈팅"><div class="thumb" style="background:#0ea5e9">S</div><div class="meta"><strong>스타 가디언</strong><span>우주 횡스크롤 슈팅</span></div><span class="tag">슈팅</span></li>
+    <li class="item" data-cat="어드벤쳐"><div class="thumb" style="background:#a16207">D</div><div class="meta"><strong>잊혀진 유적</strong><span>탐험과 수수께끼</span></div><span class="tag">어드벤쳐</span></li>
+    <li class="item" data-cat="퍼즐"><div class="thumb" style="background:#8b5cf6">P</div><div class="meta"><strong>컬러 매치</strong><span>블록 맞추기 퍼즐</span></div><span class="tag">퍼즐</span></li>
+    <li class="item" data-cat="아케이드"><div class="thumb" style="background:#f59e0b">R</div><div class="meta"><strong>네온 런</strong><span>무한 달리기</span></div><span class="tag">아케이드</span></li>
+    <li class="item" data-cat="액션"><div class="thumb" style="background:#dc2626">F</div><div class="meta"><strong>파이터 아레나</strong><span>1:1 대전 격투</span></div><span class="tag">액션</span></li>
+    <li class="item" data-cat="슈팅"><div class="thumb" style="background:#14b8a6">B</div><div class="meta"><strong>버블 샷</strong><span>조준 후 발사 슈팅</span></div><span class="tag">슈팅</span></li>
+    <li class="item" data-cat="퍼즐"><div class="thumb" style="background:#6366f1">W</div><div class="meta"><strong>워드 로직</strong><span>단어 조합 퍼즐</span></div><span class="tag">퍼즐</span></li>
+  </ul>
+  <p class="empty" id="empty">해당 카테고리의 게임이 없습니다.</p>
+
+</div>
+
+<script>
+  const chips = document.querySelectorAll('.chip');
+  const items = document.querySelectorAll('#list .item');
+  const empty = document.getElementById('empty');
+
+  function applyFilter(cat) {
+    let shown = 0;
+    items.forEach(li => {
+      const match = cat === '전체' || li.dataset.cat === cat;
+      li.hidden = !match;
+      if (match) shown++;
+    });
+    empty.style.display = shown === 0 ? 'block' : 'none';
+  }
+
+  chips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      chips.forEach(c => c.setAttribute('aria-selected', 'false'));
+      chip.setAttribute('aria-selected', 'true');
+      applyFilter(chip.dataset.cat);
+    });
+  });
+</script>
+</body>
+</html>
