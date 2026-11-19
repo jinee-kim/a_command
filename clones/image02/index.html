@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>image02 clone</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- S01: 헤더 -->
+  <header class="header">
+    <nav class="header__nav">
+      <ul class="header__list">
+        <li class="header__item">
+          <a class="header__link header__link--active" href="#">
+            <span class="header__icon header__icon--placeholder" aria-hidden="true"></span>
+            <span class="header__label header__label--active">전체</span>
+          </a>
+        </li>
+        <li class="header__item">
+          <a class="header__link" href="#">
+            <svg class="header__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 8.5l6 3.5-6 3.5z" fill="currentColor"/></svg>
+            <span class="header__label">영상/모션그래픽</span>
+          </a>
+        </li>
+        <li class="header__item">
+          <a class="header__link" href="#">
+            <span class="header__icon header__icon--placeholder" aria-hidden="true"></span>
+            <span class="header__label">그래픽 디자인</span>
+          </a>
+        </li>
+        <li class="header__item">
+          <a class="header__link" href="#">
+            <span class="header__icon header__icon--placeholder" aria-hidden="true"></span>
+            <span class="header__label">브랜딩/편집</span>
+          </a>
+        </li>
+        <li class="header__item">
+          <a class="header__link" href="#">
+            <span class="header__icon header__icon--placeholder" aria-hidden="true"></span>
+            <span class="header__label">UI/UX</span>
+          </a>
+        </li>
+        <li class="header__item">
+          <a class="header__link" href="#">
+            <span class="header__icon header__icon--placeholder" aria-hidden="true"></span>
+            <span class="header__label">일러스트레이션</span>
+          </a>
+        </li>
+        <li class="header__item">
+          <a class="header__link" href="#">
+            <span class="header__icon header__icon--placeholder" aria-hidden="true"></span>
+            <span class="header__label">디지털 아트</span>
+          </a>
+        </li>
+        <li class="header__item">
+          <a class="header__link" href="#">
+            <svg class="header__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z" fill="currentColor"/></svg>
+            <span class="header__label">AI</span>
+          </a>
+        </li>
+        <li class="header__item">
+          <a class="header__link" href="#">
+            <span class="header__icon header__icon--placeholder" aria-hidden="true"></span>
+            <span class="header__label">캐릭터 디자인</span>
+          </a>
+        </li>
+        <li class="header__item">
+          <a class="header__link" href="#">
+            <span class="header__icon header__icon--placeholder" aria-hidden="true"></span>
+            <span class="header__label">제품/패키지 디자인</span>
+          </a>
+        </li>
+        <li class="header__item">
+          <a class="header__link" href="#">
+            <span class="header__icon header__icon--placeholder" aria-hidden="true"></span>
+            <span class="header__label">포토그래피</span>
+          </a>
+        </li>
+        <li class="header__item">
+          <a class="header__link" href="#">
+            <span class="header__icon header__icon--placeholder" aria-hidden="true"></span>
+            <span class="header__label">타이포그래피</span>
+          </a>
+        </li>
+        <li class="header__item">
+          <a class="header__link" href="#">
+            <span class="header__icon header__icon--placeholder" aria-hidden="true"></span>
+            <span class="header__label">공예</span>
+          </a>
+        </li>
+        <li class="header__item">
+          <a class="header__link" href="#">
+            <span class="header__icon header__icon--placeholder" aria-hidden="true"></span>
+            <span class="header__label">파인아트</span>
+          </a>
+        </li>
+        <li class="header__item header__item--logo">
+          <a class="header__link" href="#">
+            <span class="header__logo">경기도 AI 콘텐츠</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <!-- /S01 -->
+
+  <!-- S02: 작품 리스트 -->
+  <section class="work-list">
+    <ul class="work-list__items">
+      <li>
+        <article class="work-card">
+          <img class="work-card__image" src="https://placehold.co/282x282" alt="작품 이미지: 검은 배경에 흰 종이 장식이 있는 책 펼침면" width="282" height="282">
+          <div class="work-card__meta">
+            <div class="work-card__author">
+              <img class="work-card__avatar" src="https://placehold.co/20x20" alt="작가 프로필: Hi high studio" width="20" height="20">
+              <span class="work-card__name">Hi high studio Hah Kim</span>
+            </div>
+            <div class="work-card__stats">
+              <span class="work-card__stat"><svg class="work-card__stat-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M1 8s2.5-5 7-5 7 5 7 5-2.5 5-7 5-7-5-7-5z" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="8" cy="8" r="2" fill="currentColor"/></svg>191</span>
+              <span class="work-card__stat"><svg class="work-card__stat-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 13.5s-5.5-3.4-5.5-7.2A3 3 0 0 1 8 4.6a3 3 0 0 1 5.5 1.7c0 3.8-5.5 7.2-5.5 7.2z" fill="currentColor"/></svg>9</span>
+            </div>
+          </div>
+        </article>
+      </li>
+      <li>
+        <article class="work-card">
+          <img class="work-card__image" src="https://placehold.co/282x282" alt="작품 이미지: 분홍 배경에 촛불 일러스트" width="282" height="282">
+          <div class="work-card__meta">
+            <div class="work-card__author">
+              <img class="work-card__avatar" src="https://placehold.co/20x20" alt="작가 프로필: 25min" width="20" height="20">
+              <span class="work-card__name">25min</span>
+            </div>
+            <div class="work-card__stats">
+              <span class="work-card__stat"><svg class="work-card__stat-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M1 8s2.5-5 7-5 7 5 7 5-2.5 5-7 5-7-5-7-5z" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="8" cy="8" r="2" fill="currentColor"/></svg>196</span>
+              <span class="work-card__stat"><svg class="work-card__stat-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 13.5s-5.5-3.4-5.5-7.2A3 3 0 0 1 8 4.6a3 3 0 0 1 5.5 1.7c0 3.8-5.5 7.2-5.5 7.2z" fill="currentColor"/></svg>2</span>
+            </div>
+          </div>
+        </article>
+      </li>
+      <li>
+        <article class="work-card">
+          <img class="work-card__image" src="https://placehold.co/282x282" alt="작품 이미지: 초록빛 배경의 투명 구두 사진" width="282" height="282">
+          <div class="work-card__meta">
+            <div class="work-card__author">
+              <img class="work-card__avatar" src="https://placehold.co/20x20" alt="작가 프로필: 시나브" width="20" height="20">
+              <span class="work-card__name">시나브</span>
+            </div>
+            <div class="work-card__stats">
+              <span class="work-card__stat"><svg class="work-card__stat-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M1 8s2.5-5 7-5 7 5 7 5-2.5 5-7 5-7-5-7-5z" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="8" cy="8" r="2" fill="currentColor"/></svg>192</span>
+              <span class="work-card__stat"><svg class="work-card__stat-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 13.5s-5.5-3.4-5.5-7.2A3 3 0 0 1 8 4.6a3 3 0 0 1 5.5 1.7c0 3.8-5.5 7.2-5.5 7.2z" fill="currentColor"/></svg>2</span>
+            </div>
+          </div>
+        </article>
+      </li>
+      <li>
+        <article class="work-card">
+          <img class="work-card__image" src="https://placehold.co/282x282" alt="작품 이미지: 검은 배경에 작은 사진 한 장" width="282" height="282">
+          <div class="work-card__meta">
+            <div class="work-card__author">
+              <img class="work-card__avatar" src="https://placehold.co/20x20" alt="작가 프로필: M" width="20" height="20">
+              <span class="work-card__name">모래</span>
+            </div>
+            <div class="work-card__stats">
+              <span class="work-card__stat"><svg class="work-card__stat-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M1 8s2.5-5 7-5 7 5 7 5-2.5 5-7 5-7-5-7-5z" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="8" cy="8" r="2" fill="currentColor"/></svg>182</span>
+              <span class="work-card__stat"><svg class="work-card__stat-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 13.5s-5.5-3.4-5.5-7.2A3 3 0 0 1 8 4.6a3 3 0 0 1 5.5 1.7c0 3.8-5.5 7.2-5.5 7.2z" fill="currentColor"/></svg>9</span>
+            </div>
+          </div>
+        </article>
+      </li>
+      <li>
+        <article class="work-card">
+          <img class="work-card__image" src="https://placehold.co/282x282" alt="작품 이미지: 파란 배경과 빨간 장식의 디자인 사진" width="282" height="282">
+          <div class="work-card__meta">
+            <div class="work-card__author">
+              <img class="work-card__avatar" src="https://placehold.co/20x20" alt="작가 프로필: 홍희정" width="20" height="20">
+              <span class="work-card__name">홍희정</span>
+            </div>
+            <div class="work-card__stats">
+              <span class="work-card__stat"><svg class="work-card__stat-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M1 8s2.5-5 7-5 7 5 7 5-2.5 5-7 5-7-5-7-5z" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="8" cy="8" r="2" fill="currentColor"/></svg>159</span>
+              <span class="work-card__stat"><svg class="work-card__stat-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 13.5s-5.5-3.4-5.5-7.2A3 3 0 0 1 8 4.6a3 3 0 0 1 5.5 1.7c0 3.8-5.5 7.2-5.5 7.2z" fill="currentColor"/></svg>6</span>
+            </div>
+          </div>
+        </article>
+      </li>
+      <li>
+        <article class="work-card">
+          <img class="work-card__image" src="https://placehold.co/282x282" alt="작품 이미지: 나무 사이 기둥에 걸린 배너 사진" width="282" height="282">
+          <div class="work-card__meta">
+            <div class="work-card__author">
+              <img class="work-card__avatar" src="https://placehold.co/20x20" alt="작가 프로필: 인볼드" width="20" height="20">
+              <span class="work-card__name">인볼드</span>
+            </div>
+            <div class="work-card__stats">
+              <span class="work-card__stat"><svg class="work-card__stat-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M1 8s2.5-5 7-5 7 5 7 5-2.5 5-7 5-7-5-7-5z" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="8" cy="8" r="2" fill="currentColor"/></svg>247</span>
+              <span class="work-card__stat"><svg class="work-card__stat-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 13.5s-5.5-3.4-5.5-7.2A3 3 0 0 1 8 4.6a3 3 0 0 1 5.5 1.7c0 3.8-5.5 7.2-5.5 7.2z" fill="currentColor"/></svg>11</span>
+            </div>
+          </div>
+        </article>
+      </li>
+    </ul>
+  </section>
+  <!-- /S02 -->
+</body>
+</html>

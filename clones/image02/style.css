@@ -1,0 +1,145 @@
+/* ===== 1. 토큰 ===== */
+:root {
+  --color-bg: #ffffff;
+  --color-text: #111111;
+  --color-text-sub: #888888;
+  --color-primary: #15b5b0;
+  --color-border: #e5e5e5;
+
+  --font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --font-nav: 13px;
+  --font-caption: 13px;
+  --font-stat: 12px;
+  --font-logo: 14px;
+
+  --space-nav-top: 32px;
+  --space-nav-gap: 40px;
+  --space-header-bottom: 28px;
+  --space-card-gap: 22px;
+  --space-meta-top: 12px;
+  --space-list-bottom: 32px;
+
+  --width-content: 1821px;
+}
+
+/* ===== 2. 리셋 ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ul, ol { list-style: none; }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+button { font: inherit; border: none; background: none; cursor: pointer; }
+body { font-family: var(--font-family); color: var(--color-text); background: var(--color-bg); }
+
+/* ===== 3. 공통 ===== */
+.container { max-width: var(--width-content); margin: 0 auto; }
+
+/* ===== S01: 헤더 ===== */
+.header {
+  padding: var(--space-nav-top) 0 var(--space-header-bottom);
+  background: var(--color-bg);
+}
+.header__nav {
+  display: flex;
+  justify-content: center;
+}
+.header__list {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-nav-gap);
+}
+.header__item--logo {
+  padding-left: 24px;
+  border-left: 1px solid var(--color-border);
+  align-self: center;
+}
+.header__link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-text);
+}
+.header__link--active { color: var(--color-primary); }
+.header__icon {
+  width: 24px;
+  height: 24px;
+  display: block;
+  color: currentColor;
+}
+.header__icon--placeholder {
+  border-radius: 4px;
+  background: var(--color-border);
+}
+.header__label {
+  font-size: var(--font-nav);
+  font-weight: 500;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+.header__label--active { font-weight: 700; }
+.header__logo {
+  font-size: var(--font-logo);
+  font-weight: 700;
+  color: var(--color-primary);
+  white-space: nowrap;
+}
+
+/* ===== S02: 작품 리스트 ===== */
+.work-list {
+  padding: 0 0 var(--space-list-bottom);
+  overflow: hidden;
+  background: var(--color-bg);
+}
+.work-list__items {
+  display: flex;
+  gap: var(--space-card-gap);
+  margin-left: -10px;
+}
+.work-card {
+  width: 282px;
+  flex: 0 0 282px;
+}
+.work-card__image {
+  width: 282px;
+  height: 282px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+.work-card__meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: var(--space-meta-top);
+}
+.work-card__author {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.work-card__avatar {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+.work-card__name {
+  font-size: var(--font-caption);
+  font-weight: 500;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+.work-card__stats {
+  display: flex;
+  gap: 10px;
+  color: var(--color-text-sub);
+}
+.work-card__stat {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--font-stat);
+}
+.work-card__stat-icon {
+  width: 14px;
+  height: 14px;
+  display: block;
+}
