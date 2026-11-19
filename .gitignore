@@ -1,1 +1,8 @@
-.claude
+.claude/
+.env
+.env.*
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
